@@ -43,6 +43,14 @@ public class AnalazingOfEmotionalityOfTweets
         
         Dictionary<string, string> dataEmotionParametr = ReadAndConvertFileWithSentiments();
 
+        foreach (KeyValuePair<string, string> valueOfEmotion in dataEmotionParametr)
+        {
+            if (valueOfEmotion.Value.Contains('.'))
+            {
+                valueOfEmotion.Value.Replace('.', ',');
+            }  
+        }
+        
         for (int i = 0; i < tweets.Count; i++)
         {
             for (int j = 0; j < tweets[i].words.Count; j++)
