@@ -1,4 +1,6 @@
-﻿using Lab_1_Twitter_trends;
+﻿using System.Text.Json;
+using Lab_1_Twitter_trends;
+using JsonObject = System.Text.Json.Nodes.JsonObject;
 
 /*Parse one = new Parse(); //чисто проверка функций с парсера
 one.ReadingText();
@@ -31,7 +33,7 @@ Console.WriteLine(tm["'hood"]);
 
 
 
-AnalazingOfEmotionalityOfTweets temp = new AnalazingOfEmotionalityOfTweets();
+/*AnalazingOfEmotionalityOfTweets temp = new AnalazingOfEmotionalityOfTweets();
 
 
 Parse e = new Parse();
@@ -43,4 +45,8 @@ tweets = temp.CalculatingOfTheEmotionalParametr();
 for (int i = 0; i < tweets.Count; i++)
 {
     Console.WriteLine(i+1 + " === " + tweets[i].emotionalParametr);
-}
+}*/
+
+JsonParse jf = new JsonParse();
+
+jf.ReadJsonFile();
