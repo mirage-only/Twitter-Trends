@@ -1,4 +1,5 @@
-﻿
+﻿using Lab_1_Twitter_trends;
+
 /*Parse one = new Parse(); //чисто проверка функций с парсера
 one.ReadingText();
 one.SeparationIntoTweets();
@@ -29,7 +30,6 @@ Console.WriteLine(tm["'hood"]);
 //Console.WriteLine(em.ReadAndConvertFileWithSentiments());
 
 
-using Lab_1_Twitter_trends;
 
 AnalazingOfEmotionalityOfTweets temp = new AnalazingOfEmotionalityOfTweets();
 
@@ -37,10 +37,10 @@ AnalazingOfEmotionalityOfTweets temp = new AnalazingOfEmotionalityOfTweets();
 Parse e = new Parse();
 List<Tweet> tweets = new List<Tweet>();
 
-tweets = e.ConvertDataToTweet();
-temp.CalculatingOfTheEmotionalParametr();
+tweets = temp.CalculatingOfTheEmotionalParametr();
+
 
 for (int i = 0; i < tweets.Count; i++)
 {
-    Console.WriteLine(i+1 + "===" + tweets[i].emotionalParametr);
+    Console.WriteLine(i+1 + " === " + tweets[i].emotionalParametr);
 }

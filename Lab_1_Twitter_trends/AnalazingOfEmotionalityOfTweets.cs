@@ -1,10 +1,12 @@
+using System.Globalization;
+
 namespace Lab_1_Twitter_trends;
 
 
 public class AnalazingOfEmotionalityOfTweets
 {
-    private static Parse dataOfParse = new Parse();
-    
+     IFormatProvider formatter = new NumberFormatInfo { NumberDecimalSeparator = "." };
+     
     public Dictionary<string, string> ReadAndConvertFileWithSentiments()
     {
         string file;
@@ -27,8 +29,11 @@ public class AnalazingOfEmotionalityOfTweets
                 continue;
             }
             
-            if(i % 2 == 1)
-            {
+            if(i % 2 == 1) {
+                if (splittedStr[i].Contains('.'))
+                {
+                    splittedStr[i].Replace('.', ',');
+                }
                 couplesOfSentiments[splittedStr[i-1]] = splittedStr[i];
             }
         }
@@ -36,34 +41,29 @@ public class AnalazingOfEmotionalityOfTweets
         return couplesOfSentiments;
     }
 
-    public void CalculatingOfTheEmotionalParametr()
+    public List<Tweet> CalculatingOfTheEmotionalParametr()
     {
         Parse parserData = new Parse();
         List<Tweet> tweets = parserData.ConvertDataToTweet();
         
         Dictionary<string, string> dataEmotionParametr = ReadAndConvertFileWithSentiments();
-
-        foreach (KeyValuePair<string, string> valueOfEmotion in dataEmotionParametr)
-        {
-            if (valueOfEmotion.Value.Contains('.'))
-            {
-                valueOfEmotion.Value.Replace('.', ',');
-            }  
-        }
         
         for (int i = 0; i < tweets.Count; i++)
         {
+            tweets[i].emotionalParametr = 0;
             for (int j = 0; j < tweets[i].words.Count; j++)
             {
                 foreach(KeyValuePair<string, string> word in dataEmotionParametr)
                 {
                     if (word.Key == tweets[i].words[j])
                     {
-                        tweets[i].emotionalParametr += Convert.ToDouble(word.Value);
+                        tweets[i].emotionalParametr += double.Parse(word.Value, formatter);
                     }   
                 }
             }
         }
+
+        return tweets;
     }
 
     
