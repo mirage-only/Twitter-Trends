@@ -6,8 +6,8 @@ public class Parse
 {
     private string filePath =
         "D:\\University\\OOP technology\\Lab_1_Twitter_trends\\Lab_1_Twitter_trends\\TweetsFile";
-    
-    public string ReadingText() //чтение твитов из файла
+
+    private string ReadingText() //чтение твитов из файла
     {
         string file = null;
         
@@ -16,17 +16,11 @@ public class Parse
         file = reader.ReadToEnd();
         
         reader.Close();
-
-        
-        
-        
-        
-        
         
         return file;
     }
 
-    public List<string> SeparationIntoTweets() //тут разбиваю вот эту большую строку конкретно на твиты, разбиваю по открывающейся квадратной скобке, которая всегда начинает координаты нового твита
+    private List<string> SeparationIntoTweets() //тут разбиваю вот эту большую строку конкретно на твиты, разбиваю по открывающейся квадратной скобке, которая всегда начинает координаты нового твита
     {
         string file = ReadingText();
         List<string> tweets = new List<string>();
@@ -88,7 +82,8 @@ public class Parse
             {
                 SplittedTweet.Add(tempSplit[j]);
             }
-            
+
+           
             tweet.coordinates = SplittedTweet[0];
             tweet.data = SplittedTweet[2];
             tweet.massage = SplittedTweet[3];
@@ -108,7 +103,6 @@ public class Parse
             {
                 if (splittedMessage[j] != string.Empty)
                 {
-                    //Console.WriteLine(splittedMessage[j].ToLower());
                     tweet.words.Add(splittedMessage[j].ToLower());
                 }
             }

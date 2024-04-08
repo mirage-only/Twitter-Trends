@@ -33,22 +33,21 @@ public class MapOfStates
                         
                         if (pair.Key == "HI")
                         {
-                            point.X = coordPoint[0]*30 + 5600; //2000
-                            point.Y = -coordPoint[1]*30 + 1300; //1400
-                            
+                            point.X = coordPoint[0]*30 + 5600; 
+                            point.Y = -coordPoint[1]*30 + 1300; 
                         }
             
                         else
                         {
                             if (pair.Key == "AK")
                             {
-                                point.X = coordPoint[0]*10 + 2100; //2000
-                                point.Y = -coordPoint[1]*10 + 1300; //1400
+                                point.X = coordPoint[0]*10 + 2100; 
+                                point.Y = -coordPoint[1]*10 + 1300; 
                             }
                             else
                             {
-                                point.X = coordPoint[0]*20 + 3000; //3000
-                                point.Y = -coordPoint[1]*20 + 1200; //1200    
+                                point.X = coordPoint[0]*20 + 3000; 
+                                point.Y = -coordPoint[1]*20 + 1200;   
                             }
                             
                         }
@@ -60,8 +59,7 @@ public class MapOfStates
                 }
             }
         }
-
-        //bitmap.;
+        
         bitmap.Save("D:\\University\\OOP technology\\Lab_1_Twitter_trends\\Lab_1_Twitter_trends\\map.png", ImageFormat.Png);
     }
 }

@@ -6,8 +6,8 @@ namespace Lab_1_Twitter_trends;
 public class AnalazingOfEmotionalityOfTweets
 {
      IFormatProvider formatter = new NumberFormatInfo { NumberDecimalSeparator = "." };
-     
-    public Dictionary<string, string> ReadAndConvertFileWithSentiments()
+
+     private Dictionary<string, string> ReadAndConvertFileWithSentiments()
     {
         string file;
         List<string> splittedStr = new List<string>();
@@ -65,6 +65,4 @@ public class AnalazingOfEmotionalityOfTweets
 
         return tweets;
     }
-
-    
 }

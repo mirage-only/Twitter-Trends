@@ -51,6 +51,13 @@ for (int i = 0; i < tweets.Count; i++)
 
 jf.ReadJsonFile();*/
 
-MapOfStates map = new MapOfStates();
+/*MapOfStates map = new MapOfStates();
 
-map.DrawningMap();
+map.DrawningMap();*/
+
+LinkingTweetsToStates temp = new LinkingTweetsToStates();
+
+temp.SearchStateOfTweet();
+//temp.CreateDictionaryOfTweetsInPolygons();
+
+//temp.LinkingStatesWithTweetsInDictionary();
