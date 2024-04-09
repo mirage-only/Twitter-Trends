@@ -18,65 +18,31 @@ public class LinkingTweetsToStates
 
         foreach (var index in dictionaryForTakeIndexes)
         {
-            dictionary.Add(index.Key, null!);
+            dictionary.Add(index.Key, new List<Tweet>());
         }
 
         return dictionary;
     }
-
-    /*public void ConvertPolygonsIntoListsOfPointF() //конвертирую просто листы флотов в поинт ф
-    {
-        JsonParse temp = new JsonParse();
-        Dictionary<string, List<List<List<float>>>> pairs = temp.ReadJsonFile();
-
-        Dictionary<string, List<List<PointF>>> resultDict = new Dictionary<string, List<List<PointF>>>();
-
-        /*for (int i = 0; i < pairs.Count; i++)
-        {
-                resultDict.Add(, null!);
-
-        }#1#
-
-        /*foreach (var pair in pairs)
-        {
-                resultDict.Add(pair.Key, null!);
-
-                foreach (var polygonsOfState in pair.Value)
-                {
-                        foreach (var coord in polygonsOfState)
-                        {
-                                PointF point = new PointF();
-
-                                point.X = coord[0];
-                                point.Y = coord[1];
-
-                                resultDict[pair.Key].Add(point);
-                        }
-                }
-        }#1#
-    }*/
-
     
 
-    private bool IsPointInPolygon(List<PointF> polygon, PointF testPoint) //проверка точки твита на вхождение в полигон штата
+    public static bool IsPointInPolygon(List<PointF> polygon, PointF testPoint)
     {
         bool result = false;
         int j = polygon.Count - 1;
         for (int i = 0; i < polygon.Count; i++)
         {
-            if (polygon[i].Y < testPoint.Y && polygon[j].Y >= testPoint.Y ||
+            if (polygon[i].Y < testPoint.Y && polygon[j].Y >= testPoint.Y || 
                 polygon[j].Y < testPoint.Y && polygon[i].Y >= testPoint.Y)
             {
-                if (polygon[i].X + (testPoint.Y - polygon[i].Y) / (polygon[j].Y - polygon[i].Y) *
+                if (polygon[i].X + (testPoint.Y - polygon[i].Y) /
+                    (polygon[j].Y - polygon[i].Y) *
                     (polygon[j].X - polygon[i].X) < testPoint.X)
                 {
                     result = !result;
                 }
             }
-
             j = i;
         }
-
         return result;
     }
     
@@ -117,8 +83,8 @@ public class LinkingTweetsToStates
                     {
                         PointF pointPolygon = new PointF();
      
-                        pointPolygon.X = coord[0];
-                        pointPolygon.Y = coord[1];
+                        pointPolygon.Y = coord[0];
+                        pointPolygon.X = coord[1];
      
                         pointsOfPolygon.Add(pointPolygon);
                     }
