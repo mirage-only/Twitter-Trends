@@ -7,12 +7,13 @@ using System.Diagnostics.Tracing;
 
 public class Tweet
 {
-    public string massage { get; set; } //текстовая часть твита
-    public string data { get; set; } //дата и время, потом мб сделею dataTime
-    public List<string> words { get; set; } //отфильтрованные слова твитта
+    public string massage { get; set; }
+    public string data { get; set; }
+    public List<string> words { get; set; }
     public string coordinates { get; set; }
     
-    public string state { get; set; }  //штат, к которому относится твит по координатам
-    public double emotionalParametr { get; set; } // вычесленный коэффициент настроя твитта
+    public string state { get; set; }
+    
+    public double? emotionalParametr { get; set; }
     
 }

@@ -51,6 +51,8 @@ public class AnalazingOfEmotionalityOfTweets
         for (int i = 0; i < tweets.Count; i++)
         {
             tweets[i].emotionalParametr = 0;
+            double countOfEmotionalWords = 0;
+            
             for (int j = 0; j < tweets[i].words.Count; j++)
             {
                 foreach(KeyValuePair<string, string> word in dataEmotionParametr)
@@ -58,8 +60,18 @@ public class AnalazingOfEmotionalityOfTweets
                     if (word.Key == tweets[i].words[j])
                     {
                         tweets[i].emotionalParametr += double.Parse(word.Value, formatter);
+                        countOfEmotionalWords++;
                     }   
                 }
+            }
+
+            if (countOfEmotionalWords != 0)
+            {
+                tweets[i].emotionalParametr /= countOfEmotionalWords;
+            }
+            else
+            {
+                tweets[i].emotionalParametr = null;
             }
         }
 
