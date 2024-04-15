@@ -33,6 +33,7 @@ Console.WriteLine(tm["'hood"]);
 
 
 
+/*
 AnalazingOfEmotionalityOfTweets temp = new AnalazingOfEmotionalityOfTweets();
 
 
@@ -46,14 +47,15 @@ for (int i = 0; i < tweets.Count; i++)
 {
     Console.WriteLine(i+1 + " === " + tweets[i].emotionalParametr);
 }
+*/
 
 /*JsonParse jf = new JsonParse();
 
 jf.ReadJsonFile();*/
 
-/*MapOfStates map = new MapOfStates();
+MapOfStates map = new MapOfStates();
 
-map.DrawningMap();*/
+map.DrawningMap();
 
 /*LinkingTweetsToStates temp = new LinkingTweetsToStates();
 

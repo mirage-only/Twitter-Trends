@@ -1,5 +1,4 @@
 using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 
 
@@ -54,8 +53,36 @@ public class MapOfStates
 
                         pointsInPolygon.Add(point);
                     }
+
+                    AssigningTheColorsOfTheStatesOnTheMap temp = new AssigningTheColorsOfTheStatesOnTheMap();
+
+                    Dictionary<string, double?> emotionality = temp.CalculateAverageEmotionalityOfTweet();
+
+                    Color color = Color.Aquamarine;
+                    if (emotionality[pair.Key] == null)
+                    {
+                        color = Color.Gray;
+                    }
+                    if (emotionality[pair.Key] > 0 && emotionality[pair.Key] != null)
+                    {
+                        color = Color.FromArgb((int)(255-255 * emotionality[pair.Key]), 1, (int)(255 * emotionality[pair.Key])!);
+                    }
+
+                    if (emotionality[pair.Key] < 0 && emotionality[pair.Key] != null)
+                    {
+                        color = Color.FromArgb((int)(-255 * emotionality[pair.Key])!, 1, (int)(255+255 * emotionality[pair.Key]));
+                    }
+                    
+                    if (emotionality[pair.Key] == 0 && emotionality[pair.Key] != null)
+                    {
+                        color = Color.Bisque;
+                    }
+                    
+                    SolidBrush brush = new SolidBrush(color);
                     
                     graphics.DrawPolygon(pen, pointsInPolygon.ToArray());
+                    graphics.FillPolygon(brush, pointsInPolygon.ToArray());
+                    
                 }
             }
         }

@@ -1,10 +1,5 @@
 namespace Lab_1_Twitter_trends;
 
-
-using System.Diagnostics.Tracing;
-
-
-
 public class Tweet
 {
     public string massage { get; set; }

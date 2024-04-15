@@ -25,7 +25,7 @@ public class LinkingTweetsToStates
     }
     
 
-    public static bool IsPointInPolygon(List<PointF> polygon, PointF testPoint)
+    private static bool IsPointInPolygon(List<PointF> polygon, PointF testPoint)
     {
         bool result = false;
         int j = polygon.Count - 1;
@@ -46,7 +46,7 @@ public class LinkingTweetsToStates
         return result;
     }
     
-    public Dictionary<string, List<Tweet>> SearchStateOfTweet() //коннект штатов и твитов
+    public Dictionary<string, List<Tweet>> SearchStateOfTweet() 
     {
      
         Dictionary<string, List<Tweet>> resultDictionary = CreateDictionaryOfTweetsInPolygons();
@@ -94,6 +94,7 @@ public class LinkingTweetsToStates
                     if (result)
                     {
                         resultDictionary[pair.Key].Add(tweets[i]);
+                        tweets[i].state = pair.Key;
      
                         break;
                     }
