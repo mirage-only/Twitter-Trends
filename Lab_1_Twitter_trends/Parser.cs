@@ -2,7 +2,7 @@ namespace Lab_1_Twitter_trends;
 
 using System.Threading.Channels;
 
-public class Parse
+public class Parser
 {
     private string filePath =
         "D:\\University\\OOP technology\\Lab_1_Twitter_trends\\Lab_1_Twitter_trends\\TweetsFile";

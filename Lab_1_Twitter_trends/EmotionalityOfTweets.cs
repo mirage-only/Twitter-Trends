@@ -3,7 +3,7 @@ using System.Globalization;
 namespace Lab_1_Twitter_trends;
 
 
-public class AnalazingOfEmotionalityOfTweets
+public class EmotionalityOfTweets
 {
      IFormatProvider formatter = new NumberFormatInfo { NumberDecimalSeparator = "." };
 
@@ -43,7 +43,7 @@ public class AnalazingOfEmotionalityOfTweets
 
     public List<Tweet> CalculatingOfTheEmotionalParametr()
     {
-        Parse parserData = new Parse();
+        Parser parserData = new Parser();
         List<Tweet> tweets = parserData.ConvertDataToTweet();
         
         Dictionary<string, string> dataEmotionParametr = ReadAndConvertFileWithSentiments();

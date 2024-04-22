@@ -8,8 +8,8 @@ public class MapOfStates
 {
     public void DrawningMap()
     {
-        JsonParse jsonParse = new JsonParse();
-        Dictionary<string, List<List<List<float>>>> allPolygons = jsonParse.ReadJsonFile();
+        JsonParser jsonParser = new JsonParser();
+        Dictionary<string, List<List<List<float>>>> allPolygons = jsonParser.ReadJsonFile();
         
         Bitmap bitmap = new Bitmap(2000, 1000);
         using (Graphics graphics = Graphics.FromImage(bitmap))
@@ -54,7 +54,7 @@ public class MapOfStates
                         pointsInPolygon.Add(point);
                     }
 
-                    AssigningTheColorsOfTheStatesOnTheMap temp = new AssigningTheColorsOfTheStatesOnTheMap();
+                    EmotionalityOfStates temp = new EmotionalityOfStates();
 
                     Dictionary<string, double?> emotionality = temp.CalculateAverageEmotionalityOfTweet();
 

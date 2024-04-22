@@ -12,7 +12,7 @@ public class LinkingTweetsToStates
     {
         Dictionary<string, List<Tweet>> dictionary = new Dictionary<string, List<Tweet>>();
 
-        JsonParse temp = new JsonParse();
+        JsonParser temp = new JsonParser();
 
         Dictionary<string, List<List<List<float>>>> dictionaryForTakeIndexes = temp.ReadJsonFile();
 
@@ -51,10 +51,10 @@ public class LinkingTweetsToStates
      
         Dictionary<string, List<Tweet>> resultDictionary = CreateDictionaryOfTweetsInPolygons();
      
-        AnalazingOfEmotionalityOfTweets temp = new AnalazingOfEmotionalityOfTweets();
+        EmotionalityOfTweets temp = new EmotionalityOfTweets();
         List<Tweet> tweets = temp.CalculatingOfTheEmotionalParametr();
      
-        JsonParse temp1 = new JsonParse();
+        JsonParser temp1 = new JsonParser();
         Dictionary<string, List<List<List<float>>>> pairs = temp1.ReadJsonFile();
      
         for (int i = 0; i < tweets.Count; i++)

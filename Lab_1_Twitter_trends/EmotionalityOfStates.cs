@@ -1,6 +1,6 @@
 namespace Lab_1_Twitter_trends;
 
-public class AssigningTheColorsOfTheStatesOnTheMap
+public class EmotionalityOfStates
 {
     public Dictionary<string, double?> CalculateAverageEmotionalityOfTweet()
     {
